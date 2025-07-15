@@ -9,7 +9,7 @@ These investigations demonstrate how network captures can be leveraged for threa
 ## 📡 Projects
 
 ### 🕵️‍♀️ Fake Antivirus Redirect Campaign (Wireshark)
-📝 [Read the Report](NetworkTrafficForensics/fake_av_redirect_investigation_report.md)
+📝 [Read the Report](https://github.com/LogLogic/NetworkTrafficForensics/blob/main/FakeAntivirusRedirectCampaign/fake_av_redirect_investigation_report.md)
 
 Case study analyzing a multi-stage browser-based attack captured in a PCAP file. Involves JavaScript injection, chained redirects across attacker-controlled `.tk` domains, and a final tech support scam landing page. Includes:
 
