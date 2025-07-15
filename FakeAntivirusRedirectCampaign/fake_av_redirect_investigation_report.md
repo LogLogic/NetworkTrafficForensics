@@ -40,6 +40,7 @@ if ("1" != popup_) {
 }
 ```
 This script sets a cookie to avoid repeated redirects and forces the browser to navigate to the attacker’s domain.
+
 ![JavaScript redirect code from proactivo.com.pe](screenshots/06-javascript-redirect.png)
 
 ### Stage 2 – Redirect Server Interaction
@@ -54,7 +55,9 @@ Host: raksupp0rt0701234567890[.]tk
 Location: http://tehcallinghere07012345[.]tk/?number=888-794-9521
 
 ![HTTP GET request to malicious .tk domain](screenshots/07-http-request-to-tk.png)  
+
 ![Filtered network traffic to redirect server 204.155.28.5](screenshots/08-traffic-to-redirect-server.png)  
+
 ![HTTP 302 redirect to tech support scam site](screenshots/09-stage3-302-redirect.png)
 
 
