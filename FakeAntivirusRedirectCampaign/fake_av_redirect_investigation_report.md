@@ -38,7 +38,7 @@ if ("1" != popup_) {
   createCookie13123213("1561065164894_CRYPPER", "1", 1);
   window.location = "http://raksupp0rt0701234567890[.]tk/index/?2661511868997";
 }
-
+```
 This script sets a cookie to avoid repeated redirects and forces the browser to navigate to the attacker’s domain.
 ![JavaScript redirect code from proactivo.com.pe](screenshots/06-javascript-redirect.png)
 
