@@ -48,11 +48,11 @@ This script sets a cookie to avoid repeated redirects and forces the browser to 
 - The victim’s browser connects to raksupp0rt0701234567890.tk (204.155.28.5) and sends:
 
 GET /index/?2661511868997 HTTP/1.1
-Host: raksupp0rt0701234567890[.]tk
+`Host: raksupp0rt0701234567890[.]tk`
 
 - The server responds with an HTTP 302 redirect:
 
-Location: http://tehcallinghere07012345[.]tk/?number=888-794-9521
+`Location: http://tehcallinghere07012345[.]tk/?number=888-794-9521`
 
 ![HTTP GET request to malicious .tk domain](screenshots/07-http-request-to-tk.png)  
 
@@ -65,7 +65,7 @@ Location: http://tehcallinghere07012345[.]tk/?number=888-794-9521
 
 - The redirected URL contains a phone number parameter:
 
-  http://tehcallinghere07012345[.]tk/?number=888-794-9521
+  `http://tehcallinghere07012345[.]tk/?number=888-794-9521`
 
 - This is a classic tech support scam technique designed to trick victims into calling a fraudulent toll-free number and paying for fake services.
 
