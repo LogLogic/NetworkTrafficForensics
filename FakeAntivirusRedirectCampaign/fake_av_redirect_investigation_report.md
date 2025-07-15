@@ -18,9 +18,9 @@ Related Analysis: [SANS ISC Diary – Fake AV Pages](https://isc.sans.edu/diary/
 | Step | Description |
 |-------|-------------|
 | 1 | Victim (`10.1.8.101`) visits compromised site `proactivo.com.pe` |
-| 2 | HTTP response includes injected JavaScript that redirects to `raksupp0rt0701234567890.tk` |
-| 3 | Victim’s browser sends GET request to `raksupp0rt0701234567890.tk` (`204.155.28.5`) |
-| 4 | Server responds with HTTP 302 redirect to `tehcallinghere07012345.tk/?number=888-794-9521` |
+| 2 | HTTP response includes injected JavaScript that redirects to `raksupp0rt0701234567890[.]tk` |
+| 3 | Victim’s browser sends GET request to `raksupp0rt0701234567890[.]tk` (`204.155.28.5`) |
+| 4 | Server responds with HTTP 302 redirect to `tehcallinghere07012345[.]tk/?number=888-794-9521` |
 | 5 | Victim would be directed to a tech support scam page urging a call to a fake toll-free number |
 
 ---
@@ -31,34 +31,38 @@ Related Analysis: [SANS ISC Diary – Fake AV Pages](https://isc.sans.edu/diary/
 
 - The legitimate site `proactivo.com.pe` returned an HTTP response containing this JavaScript snippet:
 
+```javascript
 popup_ = readCookie543534("1561065164894_CRYPPER");
 var randomnumber = Math.random();
 if ("1" != popup_) {
   createCookie13123213("1561065164894_CRYPPER", "1", 1);
-  window.location = "http://raksupp0rt0701234567890.tk/index/?2661511868997";
+  window.location = "http://raksupp0rt0701234567890[.]tk/index/?2661511868997";
 }
 
 This script sets a cookie to avoid repeated redirects and forces the browser to navigate to the attacker’s domain.
-Screenshot javascript-redirect.png
+![JavaScript redirect code from proactivo.com.pe](screenshots/06-javascript-redirect.png)
 
 ### Stage 2 – Redirect Server Interaction
 
 - The victim’s browser connects to raksupp0rt0701234567890.tk (204.155.28.5) and sends:
 
 GET /index/?2661511868997 HTTP/1.1
-Host: raksupp0rt0701234567890.tk
+Host: raksupp0rt0701234567890[.]tk
 
 - The server responds with an HTTP 302 redirect:
 
-Location: http://tehcallinghere07012345.tk/?number=888-794-9521
+Location: http://tehcallinghere07012345[.]tk/?number=888-794-9521
 
-Screenshots: http-request-to-tk, traffic-to-redirect-server, stage3-302-redirect
+![HTTP GET request to malicious .tk domain](screenshots/07-http-request-to-tk.png)  
+![Filtered network traffic to redirect server 204.155.28.5](screenshots/08-traffic-to-redirect-server.png)  
+![HTTP 302 redirect to tech support scam site](screenshots/09-stage3-302-redirect.png)
+
 
 ### Stage 3 – Final Tech Support Scam Landing
 
 - The redirected URL contains a phone number parameter:
 
-  http://tehcallinghere07012345.tk/?number=888-794-9521
+  http://tehcallinghere07012345[.]tk/?number=888-794-9521
 
 - This is a classic tech support scam technique designed to trick victims into calling a fraudulent toll-free number and paying for fake services.
 
@@ -68,9 +72,9 @@ Screenshots: http-request-to-tk, traffic-to-redirect-server, stage3-302-redirect
 | ------------------ | ---------------------------- |
 | Victim IP          | `10.1.8.101`                 |
 | Compromised Site   | `proactivo.com.pe`           |
-| Redirect Domain 1  | `raksupp0rt0701234567890.tk` |
+| Redirect Domain 1  | `raksupp0rt0701234567890[.]tk` |
 | Redirect Server IP | `204.155.28.5`               |
-| Redirect Domain 2  | `tehcallinghere07012345.tk`  |
+| Redirect Domain 2  | `tehcallinghere07012345[.]tk`  |
 | Scam Phone Number  | `888-794-9521`               |
 
 ## Threat Analysis Summary
