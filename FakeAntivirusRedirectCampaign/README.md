@@ -1,44 +1,44 @@
-# 🕵️‍♀️ Wireshark Traffic Analysis – Multi-Stage Fake Antivirus Redirect Campaign
+# Wireshark Traffic Analysis – Multi-Stage Fake Antivirus Redirect Campaign
 
-This project investigates a real-world browser-based redirect attack captured in a PCAP file. The attack involves a compromised website injecting malicious JavaScript, which initiates chained redirects to attacker-controlled `.tk` domains, ultimately landing the user on a fake antivirus tech support scam page.
-
-> 📅 **Case Date:** January 8, 2018  
-> 📁 **PCAP Source:** [malware-traffic-analysis.net](https://www.malware-traffic-analysis.net/2018/01/08/index.html)  
-> 📖 **Related Report:** [SANS ISC Diary](https://isc.sans.edu/diary/Fake+antivirus+pages+popping+up+like+weeds/23207)
+This project analyzes a real-world browser-based redirect attack captured in a PCAP file. The attack involves malicious JavaScript injection on a legitimate site, chained redirects to attacker-controlled `.tk` domains, and a final fake antivirus tech support scam landing page.
 
 ---
 
-## 🧠 Skills Demonstrated
+## Project Overview
 
-- Network forensics with Wireshark  
-- TCP stream and HTTP inspection  
-- Malicious JavaScript analysis  
-- Multi-stage redirection flow analysis  
+**Goal:**  
+Analyze network traffic to understand the flow of a multi-stage redirect attack, extract Indicators of Compromise (IOCs), and document the attack lifecycle.
+
+**Data:**  
+PCAP file from [malware-traffic-analysis.net (2018-01-08)](https://www.malware-traffic-analysis.net/2018/01/08/index.html) capturing HTTP requests, redirects, and injected JavaScript.
+
+**Tools:**  
+Wireshark for packet capture analysis  
+Markdown for documentation  
+
+---
+
+## Tools & Features Used
+
+- Wireshark TCP stream and HTTP inspection  
+- Filtering for HTTP requests and redirects  
+- JavaScript code extraction and analysis  
 - IOC extraction and documentation  
-- Threat modeling and report writing
+- Structured reporting with Markdown
 
 ---
 
-## 📋 Project Contents
+## Analysis Summary
 
-| File | Description |
-|------|-------------|
-| `fake_av_redirect_investigation_report.md` | Full technical report detailing the staged redirect campaign |
-| `screenshots/` | Visuals of HTTP requests, redirects, JavaScript, and traffic filters |
-| `README.md` | Project summary and reference metadata |
-
----
-
-## 🧾 Summary of Attack Flow
-
-1. Victim visits legitimate site `proactivo.com.pe`
-2. HTTP response injects JavaScript to redirect to `raksupp0rt0701234567890[.]tk`
-3. That server responds with a 302 redirect to `tehcallinghere07012345[.]tk`
-4. The final page displays a fake AV scam urging the victim to call a phone number
+1. Victim visits legitimate website `proactivo.com.pe`  
+2. HTTP response contains injected malicious JavaScript causing browser redirect  
+3. Victim’s browser follows redirect to attacker domain `raksupp0rt0701234567890[.]tk`  
+4. Redirect server responds with HTTP 302 redirect to scam domain `tehcallinghere07012345[.]tk`  
+5. Final landing page urges victim to call fraudulent tech support phone number
 
 ---
 
-## 🔍 Indicators of Compromise
+## Indicators of Compromise
 
 | Type               | Value                          |
 |--------------------|--------------------------------|
@@ -51,15 +51,15 @@ This project investigates a real-world browser-based redirect attack captured in
 
 ---
 
-## ⚠️ Disclaimer
+## Investigation Report
 
-All malicious domains in this report have been intentionally defanged (e.g. using `[.]`) to prevent accidental access. Do **not** attempt to visit them. This project is for educational and professional development purposes only.
+A detailed SOC-style incident analysis documenting detection, tracking, and forensic insights into the multi-stage redirect attack.
+
+→ [View Full Investigation Report](fake_av_redirect_investigation_report.md)
+
 
 ---
 
-## 🛠️ Tools Used
+## Disclaimer
 
-- Wireshark  
-- Malware-Traffic-Analysis.net case data  
-- Markdown for reporting
-
+Malicious domains are defanged with `[.]` to prevent accidental access. This project is for educational and professional development only.
