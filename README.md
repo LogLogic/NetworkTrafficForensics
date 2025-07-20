@@ -17,3 +17,13 @@ Case study analyzing a multi-stage browser-based attack captured in a PCAP file.
 - TCP stream tracing across multiple redirect stages  
 - IOC extraction: domains, IPs, and scam phone numbers  
 - Full SOC-style investigation report with screenshots  
+
+### 🕵️‍♂️ Malware EXE Download Analysis (Wireshark)  
+📝 [Read the Report](https://github.com/LogLogic/NetworkTrafficForensics/blob/main/MalwareEXEDownloadAnalysis/malware_exe_download_investigation_report.md)
+
+Investigation of a direct malware executable download captured in network traffic. Features a Windows host downloading a malicious PE file over HTTP, file extraction and hashing, and post-download network behavior analysis. Includes:
+
+- HTTP GET and response inspection  
+- Extraction and hash verification of malware executable   
+- Detailed step-by-step guide with commands and screenshots  
+- Full SOC-style investigation report  
