@@ -16,7 +16,9 @@ Case study analyzing a multi-stage browser-based attack captured in a PCAP file.
 - HTTP inspection and JavaScript analysis  
 - TCP stream tracing across multiple redirect stages  
 - IOC extraction: domains, IPs, and scam phone numbers  
-- Full SOC-style investigation report with screenshots  
+- Full SOC-style investigation report with screenshots
+
+---
 
 ### 🕵️‍♂️ Malware EXE Download Analysis (Wireshark)  
 📝 [Read the Report](https://github.com/LogLogic/NetworkTrafficForensics/blob/main/MalwareEXEDownloadAnalysis/malware_exe_download_investigation_report.md)
